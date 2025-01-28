@@ -1,54 +1,76 @@
-# Computer Vision Hand Counter on Raspberry Pi
+# README: Step-by-Step Installation Guide
 
-This repository contains the code and resources for a **Computer Vision Hand Counter** that uses Mediapipe on a Raspberry Pi. The system communicates with an Arduino to control LEDs based on the number of fingers detected, offering an intuitive, gesture-based control mechanism.
+This document provides step-by-step instructions for setting up a Raspberry Pi environment for face recognition and computer vision tasks.
 
-## Features
-- **Hand Tracking with Mediapipe**: Detects and counts fingers in real time.
-- **Raspberry Pi Integration**: Runs the Mediapipe-based hand counter on a Raspberry Pi.
-- **Arduino Communication**: Sends finger count data to an Arduino over serial communication.
-- **LED Control**: Each finger count activates a corresponding LED connected to the Arduino.
+## Step 1: Update and Install Essential Packages
 
-## Components
-1. **Raspberry Pi**: Runs the hand counter program.
-2. **Arduino**: Controls the LEDs based on the Raspberry Pi's input.
-3. **LEDs**: Represent finger count visually.
-4. **Mediapipe Library**: Provides hand tracking and finger count functionality.
+```bash
+# Update the package list to ensure the system has the latest repository info
+sudo apt-get update
 
-## Software Requirements
-- Raspberry Pi OS (latest version recommended)
-- Python 3.x
-- Mediapipe library
-- PySerial for serial communication
+# Upgrade installed packages to their latest versions
+sudo apt-get upgrade
 
-## Installation Instructions
-1. **Set up the Raspberry Pi**:
-   - Install required libraries:
-     ```bash
-     sudo apt-get update
-     sudo apt-get install python3-pip
-     pip3 install mediapipe pyserial
-     ```
+# Install build tools for compiling software
+sudo apt-get install build-essential
 
-2. **Upload the Arduino Code**:
-   - Write the Arduino sketch to control LEDs based on the received serial data.
-   - Upload the code using the Arduino IDE.
+# Install CMake, a tool for managing build processes
+sudo apt-get install cmake
 
-3. **Run the Hand Counter Program on Raspberry Pi**:
-   - Clone this repository:
-     ```bash
-     git clone <repository_url>
-     cd Computer-Vision-Hand-Counter
-     python3 hand_counter.py
-     ```
+# Install the GNU Fortran compiler
+sudo apt-get install gfortran
 
-## How It Works
-1. The **Raspberry Pi** detects the number of raised fingers using Mediapipe.
-2. The finger count is sent to the **Arduino** via serial communication.
-3. The **Arduino** activates the corresponding number of LEDs based on the received count.
+# Install Git for version control
+sudo apt-get install git
 
-## Applications
-- Gesture-based home automation.
-- Educational projects for computer vision and embedded systems.
-- Intuitive control interfaces for IoT devices.
+# Install wget for downloading files from the web
+sudo apt-get install wget
 
-Feel free to contribute, suggest improvements, or use this project as a learning tool for computer vision and embedded systems integration!
+# Install curl for transferring data with URLs
+sudo apt-get install curl
+
+# Install GraphicsMagick, an image processing library
+sudo apt-get install graphicsmagick
+
+# Install development files for GraphicsMagick
+sudo apt-get install libgraphicsmagick1-dev
+
+# Install BLAS and LAPACK libraries for linear algebra
+sudo apt-get install libatlas-base-dev
+
+# Install libraries for audio/video encoding and decoding
+sudo apt-get install libavcodec-dev
+sudo apt-get install libavformat-dev
+
+# Install Boost C++ libraries
+sudo apt-get install libboost-all-dev
+
+# Install GTK+ for GUI development
+sudo apt-get install libgtk2.0-dev
+
+# Install JPEG library for handling JPEG images
+sudo apt-get install libjpeg-dev
+
+# Install LAPACK for linear algebra routines
+sudo apt-get install liblapack-dev
+
+# Install libraries for scaling video streams
+sudo apt-get install libswscale-dev
+
+# Install pkg-config, a tool for managing compile and link flags
+sudo apt-get install pkg-config
+
+# Install Python development files
+sudo apt-get install python3-dev
+
+# Install NumPy, a Python library for numerical computations
+sudo apt-get install python3-numpy
+
+# Install pip, the Python package manager
+sudo apt-get install python3-pip
+
+# Install zip for compressing files
+sudo apt-get install zip
+
+# Clean up the package cache
+sudo apt-get clean
