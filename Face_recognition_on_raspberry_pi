@@ -1,0 +1,147 @@
+# Step 1: Update and install essential packages (Install one at a time)
+
+# Update the package list to ensure the system has the latest repository info
+sudo apt-get update
+
+# Upgrade installed packages to their latest versions
+sudo apt-get upgrade
+
+# Install build tools for compiling software
+sudo apt-get install build-essential
+
+# Install CMake, a tool for managing build processes
+sudo apt-get install cmake
+
+# Install the GNU Fortran compiler
+sudo apt-get install gfortran
+
+# Install Git for version control
+sudo apt-get install git
+
+# Install wget for downloading files from the web
+sudo apt-get install wget
+
+# Install curl for transferring data with URLs
+sudo apt-get install curl
+
+# Install GraphicsMagick, an image processing library
+sudo apt-get install graphicsmagick
+
+# Install development files for GraphicsMagick
+sudo apt-get install libgraphicsmagick1-dev
+
+# Install BLAS and LAPACK libraries for linear algebra
+sudo apt-get install libatlas-base-dev
+
+# Install libraries for audio/video encoding and decoding
+sudo apt-get install libavcodec-dev
+sudo apt-get install libavformat-dev
+
+# Install Boost C++ libraries
+sudo apt-get install libboost-all-dev
+
+# Install GTK+ for GUI development
+sudo apt-get install libgtk2.0-dev
+
+# Install JPEG library for handling JPEG images
+sudo apt-get install libjpeg-dev
+
+# Install LAPACK for linear algebra routines
+sudo apt-get install liblapack-dev
+
+# Install libraries for scaling video streams
+sudo apt-get install libswscale-dev
+
+# Install pkg-config, a tool for managing compile and link flags
+sudo apt-get install pkg-config
+
+# Install Python development files
+sudo apt-get install python3-dev
+
+# Install NumPy, a Python library for numerical computations
+sudo apt-get install python3-numpy
+
+# Install pip, the Python package manager
+sudo apt-get install python3-pip
+
+# Install zip for compressing files
+sudo apt-get install zip
+
+# Clean up the package cache
+sudo apt-get clean
+
+# Step 2: Install Picamera library for Python
+# Install Python bindings for the Raspberry Pi camera module
+sudo apt-get install python3-picamera
+
+# Upgrade Picamera to the latest version
+sudo pip3 install --upgrade picamera[array]
+
+# Step 3: Increase the swap file size
+# Open the swap file configuration
+sudo nano /etc/dphys-swapfile
+
+# (In Nano editor) Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=1024, then save and exit.
+
+# Restart the swap service (restart the Pi if an error occurs)
+sudo /etc/init.d/dphys-swapfile restart
+
+# Step 4: Clone and install the dlib library
+# Create a directory for dlib and clone the repository
+mkdir -p dlib
+git clone -b 'v19.6' --single-branch https://github.com/davisking/dlib.git dlib/
+cd ./dlib
+
+# Install CMake if not installed already
+sudo apt-get install cmake
+
+# Build and compile the dlib library
+mkdir build
+cd build
+cmake ..
+cmake --build .
+
+# Install the dlib Python package
+pip3 install dlib
+
+# Step 5: Decrease the swap file size
+# Revert the swap file size to its original value
+sudo nano /etc/dphys-swapfile
+
+# (In Nano editor) Change CONF_SWAPSIZE=1024 back to CONF_SWAPSIZE=100, then save and exit.
+
+# Restart the swap service (restart the Pi if an error occurs)
+sudo /etc/init.d/dphys-swapfile restart
+
+# Step 6: Install supporting libraries for dlib
+# Install Python libraries for scientific computing and image processing
+pip3 install numpy
+pip3 install scikit-image
+
+# Install SciPy, a library for scientific computations
+sudo apt-get install python3-scipy
+
+# Reinstall BLAS and LAPACK for performance improvements
+sudo apt-get install libatlas-base-dev
+
+# Install libraries for handling images and GUI applications
+sudo apt-get install libjasper-dev
+sudo apt-get install libqtgui4
+sudo apt-get install python3-pyqt5
+
+# Install Qt4 testing libraries
+sudo apt install libqt4-test
+
+# Install a specific version of OpenCV
+pip3 install opencv-python==3.4.6.27
+
+# Install the face_recognition Python library
+pip3 install face_recognition
+
+# Step 7: Clone the Face Recognition library and run an example
+# Clone the Face Recognition library repository
+git clone --single-branch https://github.com/ageitgey/face_recognition.git
+
+# Navigate to the examples folder and run the Raspberry Pi example
+cd ./face_recognition/examples
+python3 facerec_on_raspberry_pi.py
